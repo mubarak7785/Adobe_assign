@@ -15,7 +15,7 @@ app.use("/register",registerController)
 app.listen(port,async function (req,res){
     try{
         await connect();
-        console.log ("Listening Port 2124")
+        console.log ("Listening Port 2089")
     }catch(err){
         console.log(err.message)
     }
