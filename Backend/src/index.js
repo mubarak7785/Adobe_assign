@@ -8,8 +8,13 @@ app.use(express.json())
 
 const connect=require("./configs/db")
 
-const registerController=require("./controllers/register.controller")
-app.use("/register",registerController)
+const userController=require("./controllers/user.controller")
+app.use("/users",userController)
+
+const postController=require("./controllers/post.controller")
+app.use("/posts",postController)
+
+
 
 
 app.listen(port,async function (req,res){

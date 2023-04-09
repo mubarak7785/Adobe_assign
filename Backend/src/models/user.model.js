@@ -1,18 +1,17 @@
 const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema(
-  {
-    full_name: { type: String, required: true },
-    age: { type: Number, required: true },
-    location: { type: String, required: true },
-    phone: { type: Number, required: true },
-    spoken_languages: [{ type: String, required: true }],
-    availability:[{ type: String, required: true }] 
+
+const userSchema = new mongoose.Schema({
+    id: { type: String, unique: true },
+    name: { type: String, minlength: 1, maxlength: 50 },
+    email: { type: String, match: /^\S+@\S+\.\S+$/ },
+    bio: { type: String, maxlength: 200 },
   },
   {
     versionKey: false,
     timestamps: true,
   }
-);
+  );
+
 
 module.exports = mongoose.model("user", userSchema);
